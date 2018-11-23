@@ -133,8 +133,8 @@
                     <a href="/adminOrders" class=" side-bar "><i class="fa fa-users fa-lg mr-1"></i> Orders</a>
                     <a href="/adminPatterns" class=" side-bar" ><i class="fa fa-paper-plane"></i> <span>Patterns</span></a>
                     <a href="/adminMeasurements" class=" side-bar"><i class="fa fa-paperclip fa-lg mr-1"></i>Mesurements</a>
-                    <a href="/adminStates" class=" side-bar active"><i class="fa fa-signal fa-lg mr-1"></i> States</a>
-                    <a href="/adminPayments" class=" side-bar"><i class="fa fa-paypal fa-lg mr-1"></i> Payments</a>
+                    <a href="/adminStates" class=" side-bar"><i class="fa fa-signal fa-lg mr-1"></i> States</a>
+                    <a href="/adminPayments" class=" side-bar active"><i class="fa fa-paypal fa-lg mr-1"></i> Payments</a>
                 </li>
 
             </ul>
@@ -149,7 +149,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Progress States
+                Payments
             </h1>
 
         </section>
