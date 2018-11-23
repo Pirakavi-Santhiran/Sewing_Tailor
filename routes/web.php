@@ -42,3 +42,7 @@ Route::get('/adminMeasurements', function () {
 Route::get('/adminStates', function () {
     return view('Admin/adminStates');
 });
+
+Route::get('/adminPayments', function () {
+    return view('Admin/adminPayments');
+});
