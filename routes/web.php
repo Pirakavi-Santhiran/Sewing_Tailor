@@ -43,6 +43,15 @@ Route::get('/adminStates', function () {
     return view('Admin/adminStates');
 });
 
+Route::get('/customerOrder', function () {
+    return view('customer_order');
+});
+
+Route::get('/customerHome', function () {
+    return view('customerHomepage');
+});
+
 Route::get('/adminPayments', function () {
     return view('Admin/adminPayments');
 });
+
