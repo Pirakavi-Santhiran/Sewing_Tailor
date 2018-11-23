@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SimpleAdminLTE 2 | Blank Page</title>
+    <title>Payment</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -17,6 +17,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,7 +55,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">Mrs H.N.A.Pieris</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -62,8 +63,8 @@
                                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    Mrs H.N.A.Pieris - Owner of the Tailor Shop
+
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -109,7 +110,7 @@
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>Mrs H.N.A.Pieris</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -148,15 +149,83 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Payments
-            </h1>
 
         </section>
 
         <!-- Main content -->
         <section class="content">
+            <div class="col-md-10">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <div class="panel-title" align="center"><h3>Customer Payment</h3></div>
+                </div>
+                <div class="panel-body" >
+                    <form class="form-horizontal" role="form" method="post" action="#" onSubmit="return checkblank(this);" >
 
+                        <div class="form-group">
+                            <label for="cus_id" class="col-md-4 control-label">Customer ID</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="cus_id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="design_id" class="col-md-4 control-label">Order ID</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="design_id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dress_color" class="col-md-4 control-label">Total Amount</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="dress_color">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Category" class="col-md-4 control-label">Payment Method</label>
+                            <div class="col-md-4">
+                                <select name ="Category" class="form-control">
+                                    <option value="Frock">Card</option>
+                                    <option value="Blouse">Cash</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="university" class="col-md-4 control-label" >Payment Date</label>
+                            <div class="col-md-4" >
+                                <input type="date"  class="form-control" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dress_color" class="col-md-4 control-label">Amount Paid</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="dress_color">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dress_color" class="col-md-4 control-label">Due Amount</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="dress_color">
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-md-offset-4 col-md-9">
+                                <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Submit</button>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            </div>
 
 
         </section>
