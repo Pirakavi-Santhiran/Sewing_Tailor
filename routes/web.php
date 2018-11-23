@@ -51,4 +51,7 @@ Route::get('/customerHome', function () {
     return view('customerHomepage');
 });
 
+Route::get('/adminPayments', function () {
+    return view('Admin/adminPayments');
+});
 
