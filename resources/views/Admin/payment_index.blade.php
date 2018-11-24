@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>New Design</title>
+    <title>Payment</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -154,65 +154,63 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="col-md-10">
+            <div class="col-lg-10 col-md-9 pad30">
+                <!-- Website Overview -->
                 <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <div class="panel-title" align="center"><h3>Add New Designs</h3></div>
+                        <div class="panel-title" align="center"><h3>Customers Payments Overview</h3></div>
                     </div>
-                    <div class="panel-body" >
-                        <form class="form-horizontal" role="form" method="post" action="#" onSubmit="return checkblank(this);" >
+                </div>
 
-                            <div class="form-group">
-                                <label for="design_id" class="col-md-4 control-label">Design ID</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="design_id">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="Category" class="col-md-4 control-label">Category</label>
-                                <div class="col-md-4">
-                                    <select name ="Category" class="form-control">
-                                        <option value="saree">Saree Jackets</option>
-                                        <option value="frock">Frocks</option>
-                                        <option value="blouse">Blouses</option>
-                                        <option value="party">Party Frocks</option>
-                                    </select>
-                                </div>
-                            </div>
+                <div style="float: right;"  class="design" >
+                    <a href="{{url('/adminPayments/create')}}"><button class="addbtn ">Add Payments</button></a>
+                </div>
+                <!-- Latest Users -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table thread-dark"  >
+                            <thead>
+                            <tr>
+                                <th>Customer Id</th>
+                                <th>Order Id</th>
+                                <th>Total Amount</th>
+                                <th>Payment Date</th>
+                                <th>Amount Paid</th>
+                                <th>Due Amount</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($payments as $payment)
+                                <tr>
+                                    <td>{{ $payment->customer_id }}</td>
+                                    <td>{{ $payment->order_id }}</td>
+                                    <td>{{ $payment->total_amount }}</td>
+                                    <td>{{ $payment->payment_date }}</td>
+                                    <td>{{ $payment->amount_paid }}</td>
+                                    <td>{{ $payment->due_amount }}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="{{--{{url('admin/customers/'.$user->id.'/edit')}}--}}"><button class="editbtn" >EDIT</button></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <form method="POST" {{--action="{{route('user.destroy',$user->id)}}"--}}>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delbtn">DELETE</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
 
-
-                            <div class="form-group">
-                                <label for="university" class="col-md-4 control-label" >Cost</label>
-                                <div class="col-md-4" >
-                                    <input type="text"  class="form-control" name="cost">
-                                </div>
-                            </div>
-
-                            {{--<div class="form-group">
-                                <form class="uploadFormStyle" action="{{URL::to('photo')}}" method="post" enctype="multipart/form-data">
-                                    <label  class="col-md-4 control-label" >Select image to upload</label>
-                                    <div class="col-md-4" >
-                                        <input class="fileTypeStyle" type="file" name="file" id="file">
-                                        {{--<input class="submitBtnStyle" type="submit" value="Upload" name="submit">--}}
-                                        {{--<input type="hidden" value="{{ csrf_token() }}" name="_token">
-                                    </div>
-
-                                </form>
-                            </div>--}}
-
-                            <div class="form-group">
-                                <!-- Button -->
-                                <div class="col-md-offset-4 col-md-9">
-                                    <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Submit</button>
-
-                                </div>
-                            </div>
-
-                        </form>
                     </div>
                 </div>
             </div>
-
 
         </section>
         <!-- /.content -->

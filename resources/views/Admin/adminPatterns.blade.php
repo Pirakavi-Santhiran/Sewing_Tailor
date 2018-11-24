@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SimpleAdminLTE 2 | Blank Page</title>
+    <title>Design patterns</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -162,6 +162,7 @@
                 <div class="tittle-agileinfo">
                     <h3>Design Patterns & Prices</h3>
                 </div>
+
                 <div class="w3ls_banner_bottom_grids">
                     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -170,6 +171,12 @@
                             <li role="presentation"><a href="#blouses" role="tab" id="blouse-tab" data-toggle="tab" aria-controls="blouses">Blouses</a></li>
                             <li role="presentation"><a href="#party" role="tab" id="party-tab" data-toggle="tab" aria-controls="party">Party Frocks</a></li>
                         </ul>
+
+                        <div class="design" >
+                            <a href=""><button class="addbtn">Add New Designs</button></a>
+                        </div>
+
+
                         <div id="myTabContent" class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="sarees" aria-labelledby="home-tab">
                                 <div class="col-md-3 w3layouts_gallery_grid">
