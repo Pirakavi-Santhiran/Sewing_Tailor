@@ -55,3 +55,7 @@ Route::get('/adminPayments', function () {
     return view('Admin/adminPayments');
 });
 
+Route::get('/addDesign', function () {
+    return view('Admin/addDesign');
+});
+
