@@ -43,6 +43,7 @@ Route::get('/adminStates', function () {
     return view('Admin/adminStates');
 });
 
+
 Route::get('/customerOrder', function () {
     return view('customer_order');
 });
@@ -51,11 +52,12 @@ Route::get('/customerHome', function () {
     return view('customerHomepage');
 });
 
-Route::get('/adminPayments', function () {
-    return view('Admin/adminPayments');
-});
-
 Route::get('/addDesign', function () {
     return view('Admin/addDesign');
 });
+
+Route::get('/adminPayments', 'PaymentController@show_payment_index');
+Route::resource('/adminPayments', 'PaymentController');
+Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
+
 

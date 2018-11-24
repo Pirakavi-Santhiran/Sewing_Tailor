@@ -1220,6 +1220,23 @@ ul.b-nav li:nth-child(5) {
     -ms-transition: 0.5s all;
 }
 
+.design a{
+    font-size: 20px;
+    font-family: "Adobe Garamond Pro Bold";
+    font-weight: bold;
+    color: white;
+    background-color: dodgerblue;
+
+}
+
+.addbtn{
+    background-color: deepskyblue;
+    color: #ffffff !important;
+    border-radius: 5px;
+
+}
+
+
 .newx a{
     font-size: 45px;
     font-family: "Adobe Garamond Pro Bold";
@@ -1232,6 +1249,31 @@ ul.b-nav li:nth-child(5) {
     font-family: "Adobe Garamond Pro Bold";
     font-weight: bold;
     color: black;
+}
+
+.thread-dark{
+    color: black;
+    background-color: antiquewhite;
+}
+
+.delbtn{
+    background-color: #b91d19 !important;
+    color: #ffffff !important;
+    border-width: 0px;
+    border-radius: 5px;
+    height: 30px;
+    width: 55px;
+    font-size: 11px;
+}
+
+.editbtn{
+    background-color: #2d995b !important;
+    color: #ffffff !important;
+    border-width: 0px;
+    border-radius: 5px;
+    height: 30px;
+    width: 50px;
+    font-size: 11px;
 }
 
 
