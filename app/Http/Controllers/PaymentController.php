@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Payment;
 use Illuminate\Http\Request;
 
@@ -77,8 +78,11 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        $payfind = Payment::findOrFail($id);
+        $payfind = DB::table('payments')->where('order_id', '=', $id)->first();
         return view('Admin.payment_edit',['payments'=>$payfind]);
+
+        /*$editdata = DB::table('staff')->where('staff_id','=',$id)->first();
+        return View::make('staff',array('list' => $editdata));*/
     }
 
     /**
@@ -90,7 +94,27 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'customer_id'=>'required',
+            'order_id' => 'required',
+            'total_amount' => 'required',
+            'payment_date' => 'required',
+            'amount_paid' => 'required',
+            'due_amount' => 'required'
+        ]);
+
+        $payfind =DB::table('payments')->where('order_id', '=', $id);
+        //$payfind = Payment::find($id);
+        $payfind ->customer_id =$request ->customer_id;
+        $payfind ->order_id =$request ->order_id;
+        $payfind ->total_amount =$request ->total_amount;
+        $payfind ->payment_date =$request ->payment_date;
+        $payfind ->amount_paid =$request ->amount_paid;
+        $payfind ->due_amount =$request ->due_amount;
+
+        $payfind ->save();
+
+        return redirect('/adminPayments')->with('success','Customer Updated');
     }
 
     /**
@@ -101,9 +125,12 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        $payment = Payment::find($id);
+        /*$payment = Payment::find($id);
         $payment>delete();
-        return redirect('/adminPayments');
+        return redirect('/adminPayments');*/
+
+        DB::table('payments')->where('order_id', '=', $id)->delete();
+        return redirect('adminPayments');
     }
 
 }

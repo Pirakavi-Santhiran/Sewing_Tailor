@@ -59,7 +59,8 @@ Route::get('/addDesign', function () {
 Route::get('/adminPayments', 'PaymentController@show_payment_index');
 Route::resource('/adminPayments', 'PaymentController');
 Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
-//Route::get('/adminPayments','PaymentController@destroy')->name('Admin.addPayments');
+Route::get('/adminPayments/{adminPayment}','PaymentController@destroy');
+//Route::get('/adminPayments/{adminPayment}','PaymentController@update');
 
 
 
