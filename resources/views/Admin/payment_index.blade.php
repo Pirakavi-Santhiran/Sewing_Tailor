@@ -197,15 +197,10 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <form method="POST" {{--action="route('PaymentController@destroy',$payment->order_id)}}"--}}>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="delbtn">DELETE</button>
-                                        </form>
 
-{{--{{ Form::open(['method' => 'DELETE', 'route' =>['PaymentController.destroy', $payment->order_id]]) }}
-                                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                                        {{ Form::close() }}--}}
+                                        {{ Form::open(['method' => 'DELETE', 'route' =>['adminPayments.destroy', $payment->order_id]]) }}
+                                        {{ Form::submit('Delete', ['class' => 'delbtn']) }}
+                                        {{ Form::close() }}
                                     </td>
                                 </tr>
                             @endforeach
