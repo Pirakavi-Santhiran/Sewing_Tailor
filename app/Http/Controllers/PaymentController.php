@@ -36,7 +36,7 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        /*$request->validate([
+        $request->validate([
             'customer_id'=>'required|integer',
             'order_id'=> 'required|integer',
             'total_amount' => 'required',
@@ -55,7 +55,7 @@ class PaymentController extends Controller
             'due_amount'=> $request->get('due_amount')
         ]);
         $payment->save();
-        return redirect('Admin/adminPayment')->with('success', 'Stock has been added');*/
+        return redirect('/adminPayments')->with('success', 'Stock has been added');
     }
 
     /**
@@ -77,7 +77,8 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $payfind = Payment::findOrFail($id);
+        return view('Admin.payment_edit',['payments'=>$payfind]);
     }
 
     /**
@@ -100,6 +101,9 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payment = Payment::find($id);
+        $payment>delete();
+        return redirect('/adminPayments');
     }
+
 }
