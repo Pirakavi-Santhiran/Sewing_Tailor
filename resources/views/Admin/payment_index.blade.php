@@ -192,16 +192,20 @@
                                     <td>
                                         <div class="row">
                                             <div class="col">
-                                                <a href="{{--{{url('admin/customers/'.$user->id.'/edit')}}--}}"><button class="editbtn" >EDIT</button></a>
+                                                <a href="{{ url('adminPayments/'.$payment->order_id.'/edit')}}"><button class="editbtn" >EDIT</button></a>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <form method="POST" {{--action="{{route('user.destroy',$user->id)}}"--}}>
+                                        <form method="POST" {{--action="route('PaymentController@destroy',$payment->order_id)}}"--}}>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="delbtn">DELETE</button>
                                         </form>
+
+{{--{{ Form::open(['method' => 'DELETE', 'route' =>['PaymentController.destroy', $payment->order_id]]) }}
+                                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                                        {{ Form::close() }}--}}
                                     </td>
                                 </tr>
                             @endforeach
