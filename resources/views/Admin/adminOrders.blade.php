@@ -159,8 +159,8 @@
                 <!--section class="content"-->
                 <div class="panel panel-default">
                     <div class="panel-body">
-                <table class="table table-dark">
-
+                <table class="table thread-dark">
+                    <thead class="thead-dark">
 
                     <th>Order ID</th>
                     <th>Customer ID</th>
@@ -173,6 +173,7 @@
                     <th>Action</th>
                     <th>Delete</th>
                     <th>Update</th>
+                    </thead>
                     @foreach($tasks as $task)
                         <tr>
                             <td>{{$task->id}}</td>
@@ -187,20 +188,22 @@
                                 @if($task->is_accepted)
                                     <button class="btn btn-success">Accepted</button>
                                 @else
-                                    <button class="btn btn-warning">Not accepted</button>
+                                    <button class="btn btn-danger">Not accepted</button>
                                 @endif
                             </td>
                             <td>
                                 @if(!$task->is_accepted)
                                     <a href="/markasaccepted/{{$task->id}}" class="btn btn-primary">Mark as accepted</a>
                                 @else
-                                    <a href="/markasnotaccepted/{{$task->id}}" class="btn btn-danger">Mark as not accepted</a>
+                                    <a href="/markasnotaccepted/{{$task->id}}" class="btn btn-warning">Mark as not accepted</a>
                                 @endif
 
                             </td>
                             <td>
-                                <a href="/deleteorder/{{$task->id}}" class="btn btn-dark">Delete</a>
-                                <a href="/deleteorder/{{$task->id}}" class="btn btn-primary">Update</a>
+                                <a href="/deleteorder/{{$task->id}}" class="btn btn-danger">Delete</a>
+                            </td>
+                            <td>
+                                <a href="/updateorder/{{$task->id}}" class="btn btn-info">Update</a>
                             </td>
                         </tr>
 

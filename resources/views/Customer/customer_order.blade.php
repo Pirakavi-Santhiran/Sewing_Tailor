@@ -125,7 +125,11 @@
 
              </div>
         </div>
-
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b><a href="http://www.fb.com/softsed">Peiris Fashion House</a></b>
+    </div>
+</footer>
 
 
 </body>
