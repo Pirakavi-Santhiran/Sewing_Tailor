@@ -64,6 +64,12 @@ Route::get('/customerOrder', function () {
     return view('Customer/customer_order');
 });
 
+Route::get('/cusDesign', function () {
+    return view('Customer/cusDesign');
+});
+
+
+
 Route::get('/customerHome', function () {
     return view('Customer/customerHomepage');
 });
