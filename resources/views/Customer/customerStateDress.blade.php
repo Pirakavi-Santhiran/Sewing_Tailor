@@ -36,7 +36,18 @@
 </nav>
 
 <section class="content">
-    <table class="table table-dark">
+    <div class="col-lg-20 col-md-15 pad40">
+        <!-- Website Overview -->
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title" align="center"><h3> Progress of Orders</h3></div>
+            </div>
+        </div>
+
+        <!--section class="content"-->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-dark">
 
 
         <th>Order ID</th>
@@ -69,6 +80,10 @@
             </tr>
         @endforeach
     </table>
+            </div>
+        </div>
+    </div>
+
 
 
 </section>
