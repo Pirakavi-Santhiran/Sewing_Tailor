@@ -139,9 +139,9 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Customers Measurements
-            </h1>
+            <div class="tittle-agileinfo">
+                <h3>CUSTOMERS MEASUREMENTS </h3>
+            </div>
 
         </section>
 
