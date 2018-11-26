@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>States</title>
+    <title>Orders</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -17,6 +17,12 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,6 +30,20 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .navbar-default {
+            background-color: #268ece;
+            border-color: #5138e7;
+        }
+        .rcorners1 {
+            border-radius: 5px;
+            width: 100%;
+            height: 30px;
+            border-color: #ccdae7;
+
+        }
+    </style>
+
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <!-- Site wrapper -->
@@ -130,10 +150,10 @@
                 <li class="treeview">
                     <a href="/dashboard" class="sidebar" ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                     <a href="/adminRegister" class=" side-bar"><i class="fa fa-user fa-lg mr-1"></i> Register</a>
-                    <a href="/adminOrders" class=" side-bar "><i class="fa fa-users fa-lg mr-1"></i> Orders</a>
+                    <a href="/adminOrders" class=" side-bar active"><i class="fa fa-users fa-lg mr-1"></i> Orders</a>
                     <a href="/adminPatterns" class=" side-bar" ><i class="fa fa-paper-plane"></i> <span>Patterns</span></a>
                     <a href="/adminMeasurements" class=" side-bar"><i class="fa fa-paperclip fa-lg mr-1"></i>Mesurements</a>
-                    <a href="/adminStates" class=" side-bar active"><i class="fa fa-signal fa-lg mr-1"></i> States</a>
+                    <a href="/adminStates" class=" side-bar"><i class="fa fa-signal fa-lg mr-1"></i> States</a>
                     <a href="/adminPayments" class=" side-bar"><i class="fa fa-paypal fa-lg mr-1"></i> Payments</a>
                 </li>
 
@@ -150,65 +170,92 @@
         <section class="content-header">
 
         </section>
+        <div class="container col-sm-12" id="mainform">
+            <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="col-lg-20 col-md-15 pad40">
-                <!-- Website Overview -->
-                <div class="panel panel-info" >
+                <div class="panel panel-info">
                     <div class="panel-heading">
-                        <div class="panel-title" align="center"><h3>Progress of Orders</h3></div>
+                        <div class="panel-title"><h1><center><font face="verdana" color="#00008B">Create Order</font></center></h1></div>
+                    </div>
+                    <div class="panel-body" >
+                        <form class="form-horizontal" role="form" method="post" action="/saveorder" onSubmit="return checkblank(this);">
+                            {{csrf_field()}}
+                            @foreach($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    {{$error}}
+                                </div>
+
+                            @endforeach
+                            @if(session()->has('notif'))
+                                <div class="row">
+                                    <div class="alert alert-success">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <strong>Notification</strong>{{session()->get('notif')}}
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="form-group">
+                                <label for="cus_id" class="col-md-3 control-label">Customer ID</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="cus_id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="design_id" class="col-md-3 control-label">Design ID</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="design_id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dress_color" class="col-md-3 control-label">Dress Color</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="dress_color">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Category" class="col-md-3 control-label">Category</label>
+                                <div class="col-md-6">
+                                    <select name ="Category" class="rcorners1">
+                                        <option value="Frock">Frocks</option>
+                                        <option value="Blouse">Blouses</option>
+                                        <option value="Saree">Party frocks</option>
+                                        <option value="Saree Jacket">Saree Jackets</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comments" class="col-md-3 control-label" >Comments</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="comment">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date" class="col-md-3 control-label" >Date</label>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" name="date">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <!-- Button -->
+                                <div class="col-md-offset-4 col-md-9">
+                                    <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Submit</button>
+
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                <table class="table table-dark">
 
-
-                    <th>Order ID</th>
-                    <th>Customer ID</th>
-                    <th>Design ID</th>
-                    <th>Color</th>
-                    <th>Category</th>
-                    <th>Comments</th>
-                    <th>Date</th>
-                    <th>State</th>
-                    <th>Action</th>
-                    @foreach($tasks as $task)
-                        <tr>
-                            <td>{{$task->id}}</td>
-                            <td>{{$task->reg_id}}</td>
-                            <td>{{$task->deisgn_id}}</td>
-                            <td>{{$task->color}}</td>
-                            <td>{{$task->category}}</td>
-                            <td>{{$task->comments}}</td>
-                            <td>{{$task->date}}</td>
-
-                            <td>
-                                @if($task->is_completed)
-                                    <button class="btn btn-success">Completed</button>
-                                @else
-                                    <button class="btn btn-warning">Not Completed</button>
-                                @endif
-                            </td>
-                            <td>
-                                @if(!$task->is_completed)
-                                    <a href="/markascompleted/{{$task->id}}" class="btn btn-primary">Mark as Completed</a>
-                                @else
-                                    <a href="/markasnotcompleted/{{$task->id}}" class="btn btn-danger">Mark as not completed</a>
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                </table>
-
-                    </div>
-                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
 

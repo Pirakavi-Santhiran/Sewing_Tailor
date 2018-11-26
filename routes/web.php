@@ -47,11 +47,14 @@ Route::get('/adminStates', function () {
 
 
 Route::get('/customerOrder', function () {
-    return view('customer_order');
+    return view('Customer/customer_order');
+});
+Route::get('/adminAddOrder', function () {
+    return view('Admin/adminAddOrders');
 });
 
 Route::get('/customerHome', function () {
-    return view('customerHomepage');
+    return view('Customer/customerHomepage');
 });
 
 Route::get('/addDesign', function () {
@@ -64,9 +67,7 @@ Route::get('/customerOrder', function () {
 Route::get('/customerHome', function () {
     return view('Customer/customerHomepage');
 });
-Route::get('/adminCreateOrder', function () {
-    return view('Admin/adminCreateOreders');
-});
+
 Route::get('/customerAcceptedOrder', function () {
     $data=App\Order::all();
     return view('Customer/customerAcceptedOrders')->with('tasks',$data);

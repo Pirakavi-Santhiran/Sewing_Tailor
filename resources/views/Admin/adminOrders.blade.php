@@ -149,19 +149,26 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-               Customers Orders
-            </h1>
 
         </section>
 
         <!-- Main content -->
-        <!--section class="content"-->
-          
-                <!-- Main content -->
+        <section class="content">
+            <div class="col-lg-20 col-md-15 pad40">
+                <!-- Website Overview -->
+                <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title" align="center"><h3>Customers Orders Overview</h3></div>
+                    </div>
+                </div>
 
+                <div style="float: right;"  class="design" >
+                    <a href="{{url('/adminAddOrder')}}"><button class="addbtn ">Add Orders</button></a>
+                </div>
 
                 <!--section class="content"-->
+                <div class="panel panel-default">
+                    <div class="panel-body">
                 <table class="table table-dark">
 
 
@@ -208,10 +215,12 @@
                     @endforeach
                 </table>
 
+                    </div>
+                </div>
+            </div>
 
 
-
-        <!--/section-->
+        </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
