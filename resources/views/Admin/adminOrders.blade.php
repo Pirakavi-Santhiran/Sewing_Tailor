@@ -145,6 +145,9 @@
         <!-- Main content -->
         <section class="content">
             <div class="col-lg-20 col-md-15 pad40">
+                <div class="tittle-agileinfo">
+                    <h3>CUSTOMERS ORDERS </h3>
+                </div>
                 <!-- Website Overview -->
                 <div class="panel panel-info" >
                     <div class="panel-heading">

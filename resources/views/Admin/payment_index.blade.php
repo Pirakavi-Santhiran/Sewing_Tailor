@@ -145,6 +145,11 @@
         <!-- Main content -->
         <section class="content">
             <div class="col-lg-10 col-md-9 pad30">
+
+                <div class="tittle-agileinfo">
+                    <h3>CUSTOMERS PAYMENT </h3>
+                </div>
+
                 <!-- Website Overview -->
                 <div class="panel panel-info" >
                     <div class="panel-heading">
