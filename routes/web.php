@@ -80,6 +80,7 @@ Route::get('/customerStateDress', function () {
 Route::get('/adminPayments', 'PaymentController@show_payment_index');
 Route::resource('/adminPayments', 'PaymentController');
 Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
+
 //Route::get('/adminPayments','PaymentController@destroy')->name('Admin.addPayments');
 Route::post('/saveorder','CustomerOrderController@store');
 Route::get('/markasaccepted/{id}','CustomerOrderController@UpdatedTaskAccepted');
@@ -88,6 +89,10 @@ Route::get('/markascompleted/{id}','CustomerOrderController@UpdatedTaskCompleted
 Route::get('/markasnotcompleted/{id}','CustomerOrderController@UpdatedTaskNotCompleted');
 Route::post('/adminsaveorder','CustomerOrderController@adminstore');
 Route::get('/deleteorder/{id}','CustomerOrderController@DeleteOrder');
+
+
+Route::get('/adminPayments/{adminPayment}','PaymentController@destroy');
+//Route::get('/adminPayments/{adminPayment}','PaymentController@update');
 
 
 
