@@ -156,11 +156,62 @@
         </section>
 
         <!-- Main content -->
-        <section class="content">
+        <!--section class="content"-->
+          
+                <!-- Main content -->
+
+
+                <!--section class="content"-->
+                <table class="table table-dark">
+
+
+                    <th>Order ID</th>
+                    <th>Customer ID</th>
+                    <th>Design ID</th>
+                    <th>Color</th>
+                    <th>Category</th>
+                    <th>Comments</th>
+                    <th>Date</th>
+                    <th>State</th>
+                    <th>Action</th>
+                    <th>Delete</th>
+                    @foreach($tasks as $task)
+                        <tr>
+                            <td>{{$task->id}}</td>
+                            <td>{{$task->reg_id}}</td>
+                            <td>{{$task->deisgn_id}}</td>
+                            <td>{{$task->color}}</td>
+                            <td>{{$task->category}}</td>
+                            <td>{{$task->comments}}</td>
+                            <td>{{$task->date}}</td>
+
+                            <td>
+                                @if($task->is_accepted)
+                                    <button class="btn btn-success">Accepted</button>
+                                @else
+                                    <button class="btn btn-warning">Not accepted</button>
+                                @endif
+                            </td>
+                            <td>
+                                @if(!$task->is_accepted)
+                                    <a href="/markasaccepted/{{$task->id}}" class="btn btn-primary">Mark as accepted</a>
+                                @else
+                                    <a href="/markasnotaccepted/{{$task->id}}" class="btn btn-danger">Mark as not accepted</a>
+                                @endif
+
+                            </td>
+                            <td>
+                                <a href="/deleteorder/{{$task->id}}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+
+                    @endforeach
+                </table>
 
 
 
-        </section>
+
+        <!--/section-->
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
