@@ -147,9 +147,50 @@
         <!-- Main content -->
         <section class="content">
 
+                <table class="table table-dark">
 
 
-        </section>
+                    <th>Order ID</th>
+                    <th>Customer ID</th>
+                    <th>Design ID</th>
+                    <th>Color</th>
+                    <th>Category</th>
+                    <th>Comments</th>
+                    <th>Date</th>
+                    <th>State</th>
+                    <th>Action</th>
+                    @foreach($tasks as $task)
+                        <tr>
+                            <td>{{$task->id}}</td>
+                            <td>{{$task->reg_id}}</td>
+                            <td>{{$task->deisgn_id}}</td>
+                            <td>{{$task->color}}</td>
+                            <td>{{$task->category}}</td>
+                            <td>{{$task->comments}}</td>
+                            <td>{{$task->date}}</td>
+
+                            <td>
+                                @if($task->is_completed)
+                                    <button class="btn btn-success">Completed</button>
+                                @else
+                                    <button class="btn btn-warning">Not Completed</button>
+                                @endif
+                            </td>
+                            <td>
+                                @if(!$task->is_completed)
+                                    <a href="/markascompleted/{{$task->id}}" class="btn btn-primary">Mark as Completed</a>
+                                @else
+                                    <a href="/markasnotcompleted/{{$task->id}}" class="btn btn-danger">Mark as not completed</a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+
+
+
+
+            </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
