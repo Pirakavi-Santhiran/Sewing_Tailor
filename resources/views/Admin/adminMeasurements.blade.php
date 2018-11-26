@@ -114,17 +114,7 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-            </form>
-            <!-- /.search form -->
+
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
@@ -133,7 +123,7 @@
                     <a href="/adminRegister" class=" side-bar"><i class="fa fa-user fa-lg mr-1"></i> Register</a>
                     <a href="/adminOrders" class=" side-bar"><i class="fa fa-users fa-lg mr-1"></i> Orders</a>
                     <a href="/adminPatterns" class=" side-bar" ><i class="fa fa-paper-plane"></i> <span>Patterns</span></a>
-                    <a href="/adminMeasurements" class=" side-bar active"><i class="fa fa-paperclip fa-lg mr-1"></i>Mesurements</a>
+                    <a href="/adminMeasurements" class="list-group-item side-bar active"><i class="fa fa-paperclip fa-lg mr-1"></i>Mesurements</a>
                     <a href="/adminStates" class=" side-bar"><i class="fa fa-signal fa-lg mr-1"></i> States</a>
                     <a href="/adminPayments" class=" side-bar"><i class="fa fa-paypal fa-lg mr-1"></i> Payments</a>
                 </li>
