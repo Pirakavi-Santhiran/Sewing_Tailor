@@ -28,7 +28,8 @@ Route::get('/adminRegister', function () {
 });
 
 Route::get('/adminOrders', function () {
-    return view('Admin/adminOrders');
+    $data=App\Order::all();
+    return view('Admin/adminOrders')->with('tasks',$data);
 });
 
 Route::get('/adminPatterns', function () {
@@ -40,7 +41,8 @@ Route::get('/adminMeasurements', function () {
 });
 
 Route::get('/adminStates', function () {
-    return view('Admin/adminStates');
+    $data=App\Order::all();
+    return view('Admin/adminStates')->with('tasks',$data);
 });
 
 
@@ -55,11 +57,37 @@ Route::get('/customerHome', function () {
 Route::get('/addDesign', function () {
     return view('Admin/addDesign');
 });
+Route::get('/customerOrder', function () {
+    return view('Customer/customer_order');
+});
+
+Route::get('/customerHome', function () {
+    return view('Customer/customerHomepage');
+});
+Route::get('/adminCreateOrder', function () {
+    return view('Admin/adminCreateOreders');
+});
+Route::get('/customerAcceptedOrder', function () {
+    $data=App\Order::all();
+    return view('Customer/customerAcceptedOrders')->with('tasks',$data);
+});
+Route::get('/customerStateDress', function () {
+    $data=App\Order::all();
+    return view('Customer/customerStateDress')->with('tasks',$data);
+});
 
 Route::get('/adminPayments', 'PaymentController@show_payment_index');
 Route::resource('/adminPayments', 'PaymentController');
 Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
 //Route::get('/adminPayments','PaymentController@destroy')->name('Admin.addPayments');
+Route::post('/saveorder','CustomerOrderController@store');
+Route::get('/markasaccepted/{id}','CustomerOrderController@UpdatedTaskAccepted');
+Route::get('/markasnotaccepted/{id}','CustomerOrderController@UpdatedTaskNotAccepted');
+Route::get('/markascompleted/{id}','CustomerOrderController@UpdatedTaskCompleted');
+Route::get('/markasnotcompleted/{id}','CustomerOrderController@UpdatedTaskNotCompleted');
+Route::post('/adminsaveorder','CustomerOrderController@adminstore');
+Route::get('/deleteorder/{id}','CustomerOrderController@DeleteOrder');
+
 
 
 
