@@ -45,16 +45,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- navbar-header -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-								<li class="newb"><a href="/index">Home</a></li>
-								<li><a class="scroll hvr-outline-in" href="#about">About</a></li>
-                                <li><a class="scroll hvr-outline-in" href="#services">Services</a></li>
-								<li><a class="scroll hvr-outline-in" href="#gallery">Gallery</a></li>
-								<li><a class="scroll hvr-outline-in" href="#contact">Contact</a></li>
+                            <li class="newb"><a href="/index">Home</a></li>
+                            <li><a class="scroll hvr-outline-in" href="#about">About</a></li>
+                            <li><a class="scroll hvr-outline-in" href="#services">Services</a></li>
+                            <li><a class="scroll hvr-outline-in" href="#gallery">Gallery</a></li>
+                            <li><a class="scroll hvr-outline-in" href="#contact">Contact</a></li>
 						  </ul>
 					</div>
-					<div class="clearfix"> </div>	
+					<div class="clearfix"> </div>
+
 				</nav>
+
 			 <div class="clearfix"> </div>
+                 <div class="botton-agileits">
+                     <a href="#" class="hvr-rectangle-in" data-toggle="modal" data-target="#myModal2" >Login</a>
+                 </div>
+
 		   </div>
 		   </div>
 <div class="container">
@@ -86,21 +92,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--banner end here-->
 
 						<!-- Modal1 -->
-						<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+						<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
 							<div class="modal-dialog">
 							<!-- Modal content-->
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4>Sewing</h4>
-										<img src="images/a1.jpg" alt=" " class="img-responsive">
-										<h3 class="subheading-w3l">Welcome to <span>Sewing</span> Designs</h3>
-										<p>Pieris Fashion House is simply dummy text of the printing and type setting industry. Pieris Fashion House has been starting in 2008, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+                                        <div class="wrap-login100">
+                                            <form class="form-horizontal" role="form" method="post" action="" onSubmit="return checkblank(this);">
+                                                <h4>Account Login</h4>
+                                                <img src="images/g16.jpg" alt=" " class="img-responsive">
+
+
+                                                <div class="form-group">
+                                                    <label for="username" class="col-md-3 control-label">User Name</label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="username" placeholder="User name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="password" name="pass" placeholder="Password">
+                                                    </div>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- //Modal1 -->
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Sewing</h4>
+                <img src="images/a1.jpg" alt=" " class="img-responsive">
+                <h3 class="subheading-w3l">Welcome to <span>Sewing</span> Designs</h3>
+                <p>Pieris Fashion House is simply dummy text of the printing and type setting industry. Pieris Fashion House has been starting in 2008, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Modal1 -->
+
+
 
 <!-- banner-bottom -->
 	<div id="about" class="banner-bottom">
