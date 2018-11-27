@@ -140,13 +140,84 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-        <div class="tittle-agileinfo">
-            <h3>CUSTOMERS MEASUREMENTS</h3>
-        </div>
+      <section class="content">
+          <div class="col-lg-20 col-md-15 pad40">
+              <div class="tittle-agileinfo">
+                  <h3>CUSTOMER Measurements</h3>
+              </div>
+              <!-- Website Overview -->
+              <div class="panel panel-info" >
+                  <div class="panel-heading">
+                      <div class="panel-title" align="center"><h3>Customers Orders Overview</h3></div>
+                  </div>
+              </div>
 
-    </section>
-    <!-- /.content -->
+              <div style="float: right;"  class="design" >
+                  <a href="{{url('/adminAddOrder')}}"><button class="addbtn ">Add Orders</button></a>
+              </div>
+
+              <!--section class="content"-->
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <table class="table thread-dark">
+                          <thead class="thead-dark">
+
+                          <th>Order ID</th>
+                          <th>Customer ID</th>
+                          <th>Design ID</th>
+                          <th>Color</th>
+                          <th>Category</th>
+                          <th>Comments</th>
+                          <th>Date</th>
+                          <th>State</th>
+                          <th>Action</th>
+                          <th>Delete</th>
+                          <th>Update</th>
+                          </thead>
+                          @foreach($tasks as $task)
+                              <tr>
+                                  <td>{{$task->id}}</td>
+                                  <td>{{$task->reg_id}}</td>
+                                  <td>{{$task->deisgn_id}}</td>
+                                  <td>{{$task->color}}</td>
+                                  <td>{{$task->category}}</td>
+                                  <td>{{$task->comments}}</td>
+                                  <td>{{$task->date}}</td>
+
+                                  <td>
+                                      @if($task->is_accepted)
+                                          <button class="btn btn-success">Accepted</button>
+                                      @else
+                                          <button class="btn btn-danger">Not accepted</button>
+                                      @endif
+                                  </td>
+                                  <td>
+                                      @if(!$task->is_accepted)
+                                          <a href="/markasaccepted/{{$task->id}}" class="btn btn-primary">Mark as accepted</a>
+                                      @else
+                                          <a href="/markasnotaccepted/{{$task->id}}" class="btn btn-warning">Mark as not accepted</a>
+                                      @endif
+
+                                  </td>
+                                  <td>
+                                      <a href="/deleteorder/{{$task->id}}" class="btn btn-danger">Delete</a>
+                                  </td>
+                                  <td>
+                                      <a href="/updateorder/{{$task->id}}" class="btn btn-info">Update</a>
+                                  </td>
+                              </tr>
+
+                          @endforeach
+                      </table>
+
+                  </div>
+              </div>
+          </div>
+
+
+      </section>
+
+      <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 

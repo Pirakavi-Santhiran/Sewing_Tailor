@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Measurements</title>
+    <title>Orders</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -18,6 +18,11 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,6 +30,20 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .navbar-default {
+            background-color: #268ece;
+            border-color: #5138e7;
+        }
+        .rcorners1 {
+            border-radius: 5px;
+            width: 100%;
+            height: 30px;
+            border-color: #ccdae7;
+
+        }
+    </style>
+
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <!-- Site wrapper -->
@@ -114,16 +133,26 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
                     <a href="/dashboard" class="sidebar" ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                     <a href="/adminRegister" class=" side-bar"><i class="fa fa-user fa-lg mr-1"></i> Register</a>
-                    <a href="/adminOrders" class=" side-bar"><i class="fa fa-users fa-lg mr-1"></i> Orders</a>
+                    <a href="/adminOrders" class=" side-bar active"><i class="fa fa-users fa-lg mr-1"></i> Orders</a>
                     <a href="/adminPatterns" class=" side-bar" ><i class="fa fa-paper-plane"></i> <span>Patterns</span></a>
-                    <a href="/adminMeasurements" class="list-group-item side-bar active"><i class="fa fa-paperclip fa-lg mr-1"></i>Mesurements</a>
+                    <a href="/adminMeasurements" class=" side-bar"><i class="fa fa-paperclip fa-lg mr-1"></i>Mesurements</a>
                     <a href="/adminStates" class=" side-bar"><i class="fa fa-signal fa-lg mr-1"></i> States</a>
                     <a href="/adminPayments" class=" side-bar"><i class="fa fa-paypal fa-lg mr-1"></i> Payments</a>
                 </li>
@@ -138,70 +167,92 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content">
-            <div class="col-lg-20 col-md-15 pad40">
-                <!-- Website Overview -->
-                <div class="panel panel-info" >
+        <section class="content-header">
+
+        </section>
+        <div class="container col-sm-12" id="mainform">
+            <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+                <div class="panel panel-info">
                     <div class="panel-heading">
-                        <div class="panel-title" align="center"><h3>Measurements Overview</h3></div>
+                        <div class="panel-title"><h1><center><font face="verdana" color="#00008B">Add Measurements</font></center></h1></div>
                     </div>
-                </div>
-
-                <div style="float: right;"  class="design" >
-                    <a href="{{url('/adminAddMeasurements')}}"><button class="addbtn ">Add measurement</button></a>
-                </div>
-
-                <!--section class="content"-->
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <table class="table thread-dark">
-                            <thead class="thead-dark">
-
-                            <th>Customer ID</th>
-                            <th>Height</th>
-                            <th>Weight</th>
-                            <th>Chest</th>
-                            <th>Waist</th>
-                            <th>Hip</th>
-                            <th>Delete</th>
-                            <th>Update</th>
-                            </thead>
-                            @foreach($tasks as $task)
-                                <tr>
-                                    <td>{{$task->id}}</td>
-                                    <td>{{$task->height}}</td>
-                                    <td>{{$task->weight}}</td>
-                                    <td>{{$task->chest}}</td>
-                                    <td>{{$task->waist}}</td>
-                                    <td>{{$task->hip}}</td>
-
-
-                                     <td>
-                                        <a href="/deletemeasure/{{$task->id}}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                    <td>
-                                        <a href="/updatemeasure/{{$task->id}}" class="btn btn-info">Update</a>
-                                    </td>
-                                </tr>
+                    <div class="panel-body" >
+                        <form class="form-horizontal" role="form" method="post" action="/savemeasure" onSubmit="return checkblank(this);">
+                            {{csrf_field()}}
+                            @foreach($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    {{$error}}
+                                </div>
 
                             @endforeach
-                        </table>
+                            @if(session()->has('notif'))
+                                <div class="row">
+                                    <div class="alert alert-success">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <strong>Notification</strong>{{session()->get('notif')}}
+                                    </div>
+                                </div>
+                            @endif
 
+                            <div class="form-group">
+                                <label for="cus_id" class="col-md-3 control-label">Customer ID</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="height" class="col-md-3 control-label">Height</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="height">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight" class="col-md-3 control-label">Weight</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="weight">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="chest" class="col-md-3 control-label" >Chest</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="chest">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="waist" class="col-md-3 control-label" >Waist</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="waist">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hip" class="col-md-3 control-label" >Hip</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="hip">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <!-- Button -->
+                                <div class="col-md-offset-4 col-md-9">
+                                    <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Submit</button>
+
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
+
+
             </div>
+        </div>
 
 
-        </section>
-
-
-        <!-- Main content -->
-        <section class="content">
-
-
-
-        </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 

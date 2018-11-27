@@ -38,7 +38,11 @@ Route::get('/adminPatterns', function () {
 });
 
 Route::get('/adminMeasurements', function () {
-    return view('Admin/adminMeasurements');
+    $data=App\measurement::all();
+    return view('Admin/adminMeasurements')->with('tasks',$data);
+});
+Route::get('/adminAddMeasurements', function () {
+    return view('Admin/adminAddMeasurements');
 });
 
 Route::get('/adminStates', function () {
@@ -90,6 +94,7 @@ Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addP
 
 //Route::get('/adminPayments','PaymentController@destroy')->name('Admin.addPayments');
 Route::post('/saveorder','CustomerOrderController@store');
+Route::post('/savemeasure','MeasurementsController@store');
 Route::get('/markasaccepted/{id}','CustomerOrderController@UpdatedTaskAccepted');
 Route::get('/markasnotaccepted/{id}','CustomerOrderController@UpdatedTaskNotAccepted');
 Route::get('/markascompleted/{id}','CustomerOrderController@UpdatedTaskCompleted');
@@ -98,6 +103,11 @@ Route::post('/adminsaveorder','CustomerOrderController@adminstore');
 Route::get('/deleteorder/{id}','CustomerOrderController@DeleteOrder');
 Route::get('/updateorder/{id}','CustomerOrderController@UpdateOrder');
 Route::post('/updateorders/','CustomerOrderController@UpdateOrders');
+
+Route::post('/savemeasure','MeasurementsController@store');
+Route::get('/deletemeasure/{id}','MeasurementsController@DeleteMeasure');
+Route::get('/updatemeasure/{id}','MeasurementsController@UpdateMeasure');
+Route::post('/updatemeasures/','MeasurementsController@UpdateMeasures');
 
 
 Route::get('/adminPayments/{adminPayment}','PaymentController@destroy');
