@@ -162,9 +162,6 @@
                             <li role="presentation"><a href="#party" role="tab" id="party-tab" data-toggle="tab" aria-controls="party">Party Frocks</a></li>
                         </ul>
 
-                        <div class="design" >
-                            <a href=""><button class="addbtn">Add New Designs</button></a>
-                        </div>
 
 
                         <div id="myTabContent" class="tab-content">

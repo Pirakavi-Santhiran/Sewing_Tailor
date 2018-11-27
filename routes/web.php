@@ -103,6 +103,24 @@ Route::post('/updateorders/','CustomerOrderController@UpdateOrders');
 Route::get('/adminPayments/{adminPayment}','PaymentController@destroy');
 //Route::get('/adminPayments/{adminPayment}','PaymentController@update');
 
+Route::get('/staffDashboard', function () {
+    return view('Staff/staffDashboard');
+});
+
+Route::get('/staffPatterns', function () {
+    return view('Staff/staffPatterns');
+});
+
+
+Route::get('/staffMeasurements', function () {
+    return view('Staff/staffMeasurements');
+});
+
+Route::get('/staffStates', function () {
+    return view('Staff/staffStates');
+});
+
+
 
 
 
