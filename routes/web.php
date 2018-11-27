@@ -117,7 +117,8 @@ Route::get('/staffMeasurements', function () {
 });
 
 Route::get('/staffStates', function () {
-    return view('Staff/staffStates');
+    $data=App\Order::all();
+    return view('Staff/staffStates')->with('tasks',$data);
 });
 
 

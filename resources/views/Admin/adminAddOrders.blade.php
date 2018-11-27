@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                             @endif
-                            
+
                             <div class="form-group">
                                 <label for="cus_id" class="col-md-3 control-label">Customer ID</label>
                                 <div class="col-md-6">
