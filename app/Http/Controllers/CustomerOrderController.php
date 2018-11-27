@@ -59,4 +59,21 @@ class CustomerOrderController extends Controller
         $task->delete();
         return redirect()->back();
     }
+    public function UpdateOrder($id){
+        $task=Task3::find($id);
+
+        return view('updatetask')->with('taskdata',$task);
+        return redirect()->back();
+    }
+    public function UpdateTasks(Request $request){
+
+        //dd($request);
+        $id=$request->id;
+        $task=$request->task;
+        $data=Task3::find($id);
+        $data->task=$task;
+        $data->save();
+        $datas=Task3::all();
+        return view('contac')->with('tasks',$datas);
+    }
 }

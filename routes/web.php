@@ -96,6 +96,8 @@ Route::get('/markascompleted/{id}','CustomerOrderController@UpdatedTaskCompleted
 Route::get('/markasnotcompleted/{id}','CustomerOrderController@UpdatedTaskNotCompleted');
 Route::post('/adminsaveorder','CustomerOrderController@adminstore');
 Route::get('/deleteorder/{id}','CustomerOrderController@DeleteOrder');
+Route::get('/updateorder/{id}','CustomerOrderController@UpdateOrder');
+Route::post('/updateorders/','CustomerOrderController@UpdateOrders');
 
 
 Route::get('/adminPayments/{adminPayment}','PaymentController@destroy');
