@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/table2.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
@@ -11,6 +12,7 @@
             background-color: #268ece;
             border-color: #5138e7;
         }
+
     </style>
 
 </head>
@@ -48,8 +50,8 @@
         <!--section class="content"-->
         <div class="panel panel-default">
             <div class="panel-body">
-                <table class="table table-dark">
-
+                <table class="blueTable">
+                    <thead>
 
         <th>Order ID</th>
         <th>Customer ID</th>
@@ -59,7 +61,8 @@
         <th>Comments</th>
         <th>Date</th>
         <th>State</th>
-
+                    </thead>
+                    <tbody>
         @foreach($tasks as $task)
             <tr>
                 <td>{{$task->id}}</td>
@@ -80,13 +83,17 @@
 
             </tr>
         @endforeach
+                    </tbody>
     </table>
             </div>
         </div>
     </div>
 
-
-
 </section>
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b><a href="http://www.fb.com/softsed">Peiris Fashion House</a></b>
+    </div>
+</footer>
 </body>
 </html>

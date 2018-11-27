@@ -59,4 +59,33 @@ class CustomerOrderController extends Controller
         $task->delete();
         return redirect()->back();
     }
+    public function UpdateOrder($id){
+        $task=Order::find($id);
+
+        return view('Admin/adminUpdate')->with('taskdata',$task);
+        return redirect()->back();
+    }
+    public function UpdateOrders(Request $request){
+
+
+
+        $id=$request->id;
+        $reg_id=$request->reg_id;
+        $design_id=$request->design_id;
+        $dress_color=$request->dress_color;
+        $category=$request->category;
+        $comment=$request->comment;
+        $date=$request->date;
+        $data=Order::find($id);
+
+        $data->reg_id=$reg_id;
+        $data->deisgn_id=$design_id;
+        $data->color=$dress_color;
+        $data->category=$category;
+        $data->comments=$comment;
+        $data->date=$date;
+        $data->save();
+        $datas=Order::all();
+        return view('Admin/adminOrders')->with('tasks',$datas);
+    }
 }
