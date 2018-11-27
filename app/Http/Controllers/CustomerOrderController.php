@@ -60,20 +60,32 @@ class CustomerOrderController extends Controller
         return redirect()->back();
     }
     public function UpdateOrder($id){
-        $task=Task3::find($id);
+        $task=Order::find($id);
 
-        return view('updatetask')->with('taskdata',$task);
+        return view('Admin/adminUpdate')->with('taskdata',$task);
         return redirect()->back();
     }
-    public function UpdateTasks(Request $request){
+    public function UpdateOrders(Request $request){
 
-        //dd($request);
+
+
         $id=$request->id;
-        $task=$request->task;
-        $data=Task3::find($id);
-        $data->task=$task;
+        $reg_id=$request->reg_id;
+        $design_id=$request->design_id;
+        $dress_color=$request->dress_color;
+        $category=$request->category;
+        $comment=$request->comment;
+        $date=$request->date;
+        $data=Order::find($id);
+
+        $data->reg_id=$reg_id;
+        $data->deisgn_id=$design_id;
+        $data->color=$dress_color;
+        $data->category=$category;
+        $data->comments=$comment;
+        $data->date=$date;
         $data->save();
-        $datas=Task3::all();
-        return view('contac')->with('tasks',$datas);
+        $datas=Order::all();
+        return view('Admin/adminOrders')->with('tasks',$datas);
     }
 }
