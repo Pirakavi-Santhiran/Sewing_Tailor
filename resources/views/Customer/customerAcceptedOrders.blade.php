@@ -19,10 +19,11 @@
 <nav class="navbar navbar-default"  >
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white"><b>Order</b><span class="caret"></span></a>
-                <ul class="dropdown-menu">
+            <li class="nav-item"><a href="/customerHome" style="color:white"><b>Home</b></a></li>
+            <li class="dropdown active "><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white"><b>Order</b><span class="caret"></span></a>
+                <ul class="dropdown-menu active">
                     <li><a href="/customerOrder">Place Order</a></li>
-                    <li><a href="/customerAcceptedOrder">Accepted Order</a></li>
+                    <li class="nav-item active"><a href="/customerAcceptedOrder">Accepted Order</a></li>
                 </ul>
             </li>
             <li><a href="#" style="color:white"><b>Measurements</b></a></li>
