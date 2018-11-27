@@ -88,6 +88,12 @@ Route::get('/customerStateDress', function () {
     return view('Customer/customerStateDress')->with('tasks',$data);
 });
 
+Route::get('/customerMeasurements', function () {
+    $data=App\measurement::all();
+    return view('Customer/customerMeasurements')->with('tasks',$data);
+});
+
+
 Route::get('/adminPayments', 'PaymentController@show_payment_index');
 Route::resource('/adminPayments', 'PaymentController');
 Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
@@ -123,7 +129,8 @@ Route::get('/staffPatterns', function () {
 
 
 Route::get('/staffMeasurements', function () {
-    return view('Staff/staffMeasurements');
+    $data=App\measurement::all();
+    return view('Staff/staffMeasurements')->with('tasks',$data);
 });
 
 Route::get('/staffStates', function () {
