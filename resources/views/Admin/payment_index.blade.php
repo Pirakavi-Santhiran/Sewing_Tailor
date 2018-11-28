@@ -196,6 +196,7 @@
                                         {{ Form::open(['method' => 'DELETE', 'route' =>['adminPayments.destroy', $payment->order_id]]) }}
                                         {{ Form::submit('Delete', ['class' => 'delbtn']) }}
                                         {{ Form::close() }}
+
                                     </td>
                                 </tr>
                             @endforeach

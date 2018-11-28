@@ -13,13 +13,13 @@
 
     <div class = "card-panel center">
         <div class="row">
-            <form name="editForm" class="col s12" method="POST" action="{{ route('adminPayments.update',$payments->order_id) }}">
+            <form name="editForm" class="col s12" method="POST" action="{{ route('adminPayments.update',$payment->order_id) }}"{{--action="{{ route('adminPayments.update',$payment->id) }}"--}}>
                 @csrf
                 @method('PUT')
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="customer_id " type="number" class="validate" name="name" value="{{ $payments->customer_id }}">
+                        <input id="customer_id " type="number" class="validate" name="customer_id" value="{{ $payment->customer_id }}">
                         <label for="customer_id " >Customer Id</label>
                         @if($errors->has('customer_id '))
                             <span class="form-text invalid-feedback"  style="color: red">{{$errors->first('customer_id ')}}</span>
@@ -27,17 +27,17 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="order_id" type="number" class="validate" name="order_id" value="{{ $payments->order_id }}">
-                        <label for="order_id">Order Id</label>
-                        @if($errors->has('order_id'))
-                            <span class="form-text invalid-feedback"  style="color: red">{{$errors->first('order_id')}}</span>
+                        <input id="id" type="number" class="validate" name="id" value="{{ $payment->order_id }}">
+                        <label for="id">Order Id</label>
+                        @if($errors->has('id'))
+                            <span class="form-text invalid-feedback"  style="color: red">{{$errors->first('id')}}</span>
                         @endif
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">payment</i>
-                        <input id="total_amount" type="number" class="validate" name="total_amount" value="{{ $payments->total_amount }}">
+                        <input id="total_amount" type="number" class="validate" name="total_amount" value="{{ $payment->total_amount }}">
                         <label for="total_amount">Total Amount</label>
                         @if($errors->has('total_amount'))
                             <span class="form-text invalid-feedback"  style="color: red">{{$errors->first('total_amount')}}</span>
@@ -45,17 +45,17 @@
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">date_range</i>
-                        <input id="payment_date" type="date" class="validate" name="payment_date" value="{{ $payments->payment_date }}">
+                        <input id="payment_date" type="date" class="validate" name="payment_date" value="{{ $payment->payment_date }}">
                         <label for="payment_date">Payment date</label>
                         @if($errors->has('payment_date'))
-                            <span class="form-text invalid-feedback"  style="color: red">{{$errors->first('payment_date')}}</span>
+                            <span class="form-text invalid-feedback"  style="color: red">{{$error->first('payment_date')}}</span>
                         @endif
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">payment</i>
-                        <input id="amount_paid " type="number" class="validate" name="amount_paid" value="{{ $payments->amount_paid }}">
+                        <input id="amount_paid " type="number" class="validate" name="amount_paid" value="{{ $payment->amount_paid }}">
                         <label for="amount_paid ">Paid Amount</label>
                         @if($errors->has('amount_paid '))
                             <span class="form-text invalid-feedback"  style="color: red">{{$errors->first('amount_paid ')}}</span>
