@@ -42,11 +42,11 @@
                     </div>
                     <div class="input-field col s6 ">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="order_id" type="text"  placeholder="Enter Order Id" class="form-control{{ $errors->has('order_id') ? ' is-invalid' : '' }}" name="order_id" value="{{ old('order_id') }}" required autofocus>
+                        <input id="id" type="text"  placeholder="Enter Order Id" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="id" value="{{ old('id') }}" required autofocus>
 
-                        <label for="order_id">Order Id</label>
-                        @if($errors->has('order_id'))
-                            <span class="form-text invalid-feedback" style="color: red">{{$errors->first('order_id')}}</span>
+                        <label for="id">Order Id</label>
+                        @if($errors->has('id'))
+                            <span class="form-text invalid-feedback" style="color: red">{{$errors->first('id')}}</span>
                         @endif
 
                     </div>

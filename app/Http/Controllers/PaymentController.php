@@ -39,7 +39,7 @@ class PaymentController extends Controller
     {
         $request->validate([
             'customer_id'=>'required|integer',
-            'order_id'=> 'required|integer',
+            'id'=> 'required|integer',
             'total_amount' => 'required',
             'payment_date' => 'required',
             'amount_paid' => 'required',
@@ -48,7 +48,7 @@ class PaymentController extends Controller
         ]);
         $payment = new Payment([
             'customer_id' => $request->get('customer_id'),
-            'order_id'=> $request->get('order_id'),
+            'order_id'=> $request->get('id'),
             'total_amount'=> $request->get('total_amount'),
             'payment_method' => $request->get('payment_method'),
             'payment_date'=> $request->get('payment_date'),
@@ -78,8 +78,11 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        $payfind = DB::table('payments')->where('order_id', '=', $id)->first();
-        return view('Admin.payment_edit',['payments'=>$payfind]);
+        /*$payfind = DB::table('payments')->where('order_id', '=', $id)->first();
+        return view('Admin.payment_edit',['payments'=>$payfind]);*/
+
+        $payfind = Payment::findOrFail($id);
+        return view('Admin.payment_edit',['payment'=>$payfind]);
 
         /*$editdata = DB::table('staff')->where('staff_id','=',$id)->first();
         return View::make('staff',array('list' => $editdata));*/
@@ -94,19 +97,20 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'customer_id'=>'required',
-            'order_id' => 'required',
-            'total_amount' => 'required',
-            'payment_date' => 'required',
-            'amount_paid' => 'required',
-            'due_amount' => 'required'
-        ]);
+//        dd($request);
+//        $this->validate($request,[
+//            'customer_id'=>'required',
+//            'id' => 'required',
+//            'total_amount' => 'required',
+//            'payment_date' => 'required',
+//            'amount_paid' => 'required',
+//            'due_amount' => 'required'
+//        ]);
 
-        $payfind =DB::table('payments')->where('order_id', '=', $id);
-        //$payfind = Payment::find($id);
+        //$payfind =DB::table('payments')->where('order_id', '=', $id);
+        $payfind = Payment::find($id);
         $payfind ->customer_id =$request ->customer_id;
-        $payfind ->order_id =$request ->order_id;
+        $payfind ->order_id =$request ->id;
         $payfind ->total_amount =$request ->total_amount;
         $payfind ->payment_date =$request ->payment_date;
         $payfind ->amount_paid =$request ->amount_paid;
@@ -114,7 +118,7 @@ class PaymentController extends Controller
 
         $payfind ->save();
 
-        return redirect('/adminPayments')->with('success','Customer Updated');
+        return redirect('/adminPayments')->with('success','Payment Updated');
     }
 
     /**
