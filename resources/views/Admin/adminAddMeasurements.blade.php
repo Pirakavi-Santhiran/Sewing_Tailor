@@ -175,10 +175,10 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <div class="panel-title"><h1><center><font face="verdana" color="#00008B">Create Order</font></center></h1></div>
+                        <div class="panel-title"><h1><center><font face="verdana" color="#00008B">Add Measurements</font></center></h1></div>
                     </div>
                     <div class="panel-body" >
-                        <form class="form-horizontal" role="form" method="post" action="/saveorder" onSubmit="return checkblank(this);">
+                        <form class="form-horizontal" role="form" method="post" action="/savemeasure" onSubmit="return checkblank(this);">
                             {{csrf_field()}}
                             @foreach($errors->all() as $error)
                                 <div class="alert alert-danger" role="alert">
@@ -198,44 +198,40 @@
                             <div class="form-group">
                                 <label for="cus_id" class="col-md-3 control-label">Customer ID</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="cus_id">
+                                    <input type="text" class="form-control" name="id">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="design_id" class="col-md-3 control-label">Design ID</label>
+                                <label for="height" class="col-md-3 control-label">Height</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="design_id">
+                                    <input type="text" class="form-control" name="height">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="dress_color" class="col-md-3 control-label">Dress Color</label>
+                                <label for="weight" class="col-md-3 control-label">Weight</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="dress_color">
+                                    <input type="text" class="form-control" name="weight">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="chest" class="col-md-3 control-label" >Chest</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="chest">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="Category" class="col-md-3 control-label">Category</label>
+                                <label for="waist" class="col-md-3 control-label" >Waist</label>
                                 <div class="col-md-6">
-                                    <select name ="Category" class="rcorners1">
-                                        <option value="Frock">Frocks</option>
-                                        <option value="Blouse">Blouses</option>
-                                        <option value="Saree">Party frocks</option>
-                                        <option value="Saree Jacket">Saree Jackets</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="waist">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="comments" class="col-md-3 control-label" >Comments</label>
+                                <label for="hip" class="col-md-3 control-label" >Hip</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="comment">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="date" class="col-md-3 control-label" >Date</label>
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" name="date">
+                                    <input type="text" class="form-control" name="hip">
                                 </div>
                             </div>
 

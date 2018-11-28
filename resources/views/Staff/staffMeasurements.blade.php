@@ -140,13 +140,58 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-        <div class="tittle-agileinfo">
-            <h3>CUSTOMERS MEASUREMENTS</h3>
-        </div>
+      <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content">
+              <div class="col-lg-20 col-md-15 pad40">
+                  <!-- Website Overview -->
+                  <div class="panel panel-info" >
+                      <div class="panel-heading">
+                          <div class="panel-title" align="center"><h3>Measurements Overview</h3></div>
+                      </div>
+                  </div>
 
-    </section>
-    <!-- /.content -->
+                  <!--section class="content"-->
+                  <div class="panel panel-default">
+                      <div class="panel-body">
+                          <table class="table thread-dark">
+                              <thead class="thead-dark">
+
+                              <th>Customer ID</th>
+                              <th>Height</th>
+                              <th>Weight</th>
+                              <th>Chest</th>
+                              <th>Waist</th>
+                              <th>Hip</th>
+                              <th>Delete</th>
+                              </thead>
+                              @foreach($tasks as $task)
+                                  <tr>
+                                      <td>{{$task->id}}</td>
+                                      <td>{{$task->height}}</td>
+                                      <td>{{$task->weight}}</td>
+                                      <td>{{$task->chest}}</td>
+                                      <td>{{$task->waist}}</td>
+                                      <td>{{$task->hip}}</td>
+
+
+                                      <td>
+                                          <a href="/deletemeasure/{{$task->id}}" class="btn btn-danger">Delete</a>
+                                      </td>
+                                  </tr>
+
+                              @endforeach
+                          </table>
+
+                      </div>
+                  </div>
+              </div>
+
+
+          </section>
+
+
+          <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 

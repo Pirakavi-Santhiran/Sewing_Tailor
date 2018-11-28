@@ -33,7 +33,7 @@
                     <li><a href="/customerAcceptedOrder">Accepted Order</a></li>
                 </ul>
             </li>
-            <li><a href="#" style="color:white"><b>Measurements</b></a></li>
+            <li><a href="/customerMeasurements" style="color:white"><b>Measurements</b></a></li>
             <li><a href="/cusDesign" style="color:white"><b>Design Patterns</b></a></li>
             <li><a href="/customerStateDress" style="color:white"><b>State of dress</b></a></li>
         </ul>

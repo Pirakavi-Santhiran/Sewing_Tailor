@@ -38,7 +38,11 @@ Route::get('/adminPatterns', function () {
 });
 
 Route::get('/adminMeasurements', function () {
-    return view('Admin/adminMeasurements');
+    $data=App\measurement::all();
+    return view('Admin/adminMeasurements')->with('tasks',$data);
+});
+Route::get('/adminAddMeasurements', function () {
+    return view('Admin/adminAddMeasurements');
 });
 
 Route::get('/adminStates', function () {
@@ -84,12 +88,19 @@ Route::get('/customerStateDress', function () {
     return view('Customer/customerStateDress')->with('tasks',$data);
 });
 
+Route::get('/customerMeasurements', function () {
+    $data=App\measurement::all();
+    return view('Customer/customerMeasurements')->with('tasks',$data);
+});
+
+
 Route::get('/adminPayments', 'PaymentController@show_payment_index');
 Route::resource('/adminPayments', 'PaymentController');
 Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
 
 //Route::get('/adminPayments','PaymentController@destroy')->name('Admin.addPayments');
 Route::post('/saveorder','CustomerOrderController@store');
+Route::post('/savemeasure','MeasurementsController@store');
 Route::get('/markasaccepted/{id}','CustomerOrderController@UpdatedTaskAccepted');
 Route::get('/markasnotaccepted/{id}','CustomerOrderController@UpdatedTaskNotAccepted');
 Route::get('/markascompleted/{id}','CustomerOrderController@UpdatedTaskCompleted');
@@ -98,6 +109,11 @@ Route::post('/adminsaveorder','CustomerOrderController@adminstore');
 Route::get('/deleteorder/{id}','CustomerOrderController@DeleteOrder');
 Route::get('/updateorder/{id}','CustomerOrderController@UpdateOrder');
 Route::post('/updateorders/','CustomerOrderController@UpdateOrders');
+
+Route::post('/savemeasure','MeasurementsController@store');
+Route::get('/deletemeasure/{id}','MeasurementsController@DeleteMeasure');
+Route::get('/updatemeasure/{id}','MeasurementsController@UpdateMeasure');
+Route::post('/updatemeasures/','MeasurementsController@UpdateMeasures');
 
 
 Route::get('/adminPayments/{adminPayment}','PaymentController@destroy');
@@ -113,11 +129,13 @@ Route::get('/staffPatterns', function () {
 
 
 Route::get('/staffMeasurements', function () {
-    return view('Staff/staffMeasurements');
+    $data=App\measurement::all();
+    return view('Staff/staffMeasurements')->with('tasks',$data);
 });
 
 Route::get('/staffStates', function () {
-    return view('Staff/staffStates');
+    $data=App\Order::all();
+    return view('Staff/staffStates')->with('tasks',$data);
 });
 
 

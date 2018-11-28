@@ -32,7 +32,7 @@
                     <li><a href="/customerAcceptedOrder">Accepted Order</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a href="#" style="color:white"><b>Measurements</b></a></li>
+            <li class="nav-item"><a href="/customerMeasurements" style="color:white"><b>Measurements</b></a></li>
             <li class="nav-item active"><a href="/cusDesign" style="color:white"><b>Design Patterns</b></a></li>
             <li class="nav-item"><a href="/customerStateDress" style="color:white"><b>State of dress</b></a></li>
         </ul>
