@@ -32,23 +32,23 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form">
+            <form class="login100-form validate-form" action="">
 					<span class="login100-form-title p-b-34">
 						Account Login
 					</span>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="text" name="username" placeholder="User name">
+                    <input id="username" type="text" placeholder="User name" class="input100{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
+                    <input id="password" type="password" class="input100{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
-                        Sign in
+                        {{ __('Login') }}
                     </button>
                 </div>
 
