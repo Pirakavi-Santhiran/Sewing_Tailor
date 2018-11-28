@@ -568,12 +568,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="agile-contact-left">
 					<div class="contact-form">
 						<h3 class="white-w3ls subheading-w3l">Contact Form</h3>
-						<form action="#" method="post">
-								<input type="text" name="Name" placeholder="Name" required="">
-								<input type="email" name="Email" placeholder="Email" required=""> 
-								<input type="text" name="Subject" placeholder="Subject" required="">
-								<textarea name="Message" placeholder="Message" required=""></textarea>
-							<input type="submit" value="SEND">
+						<form action="/index" method="post">
+                            @csrf
+								<input type="text" name="name" placeholder="Name" required="">
+								<input type="email" name="email" placeholder="Email" required="">
+								<input type="text" name="subject" placeholder="Subject" required="">
+								<textarea name="message" placeholder="Message" required=""></textarea>
+							<input type="submit" name="submit" value="SEND">
 						</form>
 					</div>
 					<div class="address-grid">

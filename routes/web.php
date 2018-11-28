@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/index', function () {
+Route::get('/home', function () {
     return view('index');
 });
 
 
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('Admin/dashboard');
-});
+});*/
 
 Route::get('/login', function () {
     return view('Admin/login');
@@ -96,6 +96,15 @@ Route::get('/customerMeasurements', function () {
 
 Route::get('/adminPayments', 'PaymentController@show_payment_index');
 Route::resource('/adminPayments', 'PaymentController');
+
+Route::get('/dashboard', 'ContactController@show_dashboard');
+Route::resource('/dashboard', 'ContactController');
+
+//Route::get('/index', 'ContactController@show_index');
+Route::resource('/index', 'ContactController');
+Route::post('/index','ContactController@store');
+//Route::post('/index','ContactController@create');
+
 Route::get('/adminPayments/create','PaymentController@create')->name('Admin.addPayments');
 
 //Route::get('/adminPayments','PaymentController@destroy')->name('Admin.addPayments');
@@ -105,6 +114,7 @@ Route::get('/markasaccepted/{id}','CustomerOrderController@UpdatedTaskAccepted')
 Route::get('/markasnotaccepted/{id}','CustomerOrderController@UpdatedTaskNotAccepted');
 Route::get('/markascompleted/{id}','CustomerOrderController@UpdatedTaskCompleted');
 Route::get('/markasnotcompleted/{id}','CustomerOrderController@UpdatedTaskNotCompleted');
+
 Route::post('/adminsaveorder','CustomerOrderController@adminstore');
 Route::get('/deleteorder/{id}','CustomerOrderController@DeleteOrder');
 Route::get('/updateorder/{id}','CustomerOrderController@UpdateOrder');
